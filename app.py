@@ -23,11 +23,133 @@ st.markdown("""
 
 html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
 
+/* ════════════════════════════════════════════════
+   PAGE BACKGROUND  — light green → black text
+   ════════════════════════════════════════════════ */
 .main { background: #EDF2E8; }
 
+/* Main content area text (light green bg) */
+section[data-testid="stMain"],
+.main .block-container {
+    color: #1f2328 !important;
+}
+
+/* ════════════════════════════════════════════════
+   STREAMLIT NATIVE ELEMENTS — light bg → black
+   ════════════════════════════════════════════════ */
+
+/* Page headings (st.markdown "### …") */
+h1, h2, h3, h4, h5, h6 {
+    color: #1f2328 !important;
+}
+
+/* st.caption */
+[data-testid="stCaptionContainer"],
+[data-testid="stCaptionContainer"] p {
+    color: #3a4a3a !important;
+}
+
+/* st.markdown / st.write output */
+[data-testid="stMarkdownContainer"],
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] ol,
+[data-testid="stMarkdownContainer"] ul,
+[data-testid="stMarkdownContainer"] strong,
+[data-testid="stMarkdownContainer"] em {
+    color: #1f2328 !important;
+}
+
+/* Input / number-input / selectbox labels */
+[data-testid="stWidgetLabel"],
+[data-testid="stWidgetLabel"] p,
+label, label p {
+    color: #1f2328 !important;
+}
+
+/* Input field text (light bg inputs) */
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    color: #1f2328 !important;
+    background-color: #ffffff !important;
+}
+
+/* Selectbox displayed value */
+[data-testid="stSelectbox"] div[data-baseweb="select"] span {
+    color: #1f2328 !important;
+}
+
+/* Number input value */
+[data-testid="stNumberInput"] input {
+    color: #1f2328 !important;
+}
+
+/* st.info / st.success / st.error / st.warning banners */
+[data-testid="stNotification"],
+[data-testid="stAlert"],
+div[data-testid="stAlert"] p {
+    color: #1f2328 !important;
+}
+
+/* st.success green banner */
+div[data-testid="stSuccess"],
+div[data-testid="stSuccess"] p {
+    color: #1f2328 !important;
+}
+
+/* Dividers / hr */
+hr { border-color: #C8D8C0; }
+
+/* ════════════════════════════════════════════════
+   SIDEBAR — dark → white text
+   ════════════════════════════════════════════════ */
+[data-testid="stSidebar"],
+[data-testid="stSidebar"] * {
+    color: #ffffff !important;
+}
+/* Sidebar inputs are light — keep them dark */
+[data-testid="stSidebar"] input {
+    color: #1f2328 !important;
+    background: #ffffff !important;
+}
+
+/* ════════════════════════════════════════════════
+   DOWNLOAD BUTTON — dark green → white text
+   ════════════════════════════════════════════════ */
+[data-testid="stDownloadButton"] button {
+    color: #ffffff !important;
+    background: #1E5032 !important;
+    border: none !important;
+}
+[data-testid="stDownloadButton"] button:hover {
+    background: #163D26 !important;
+    color: #ffffff !important;
+}
+
+/* ════════════════════════════════════════════════
+   RUN AUDIT BUTTON — dark green → white text
+   ════════════════════════════════════════════════ */
+.stButton > button {
+    background: #1E5032 !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 12px 32px !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    font-size: 1rem !important;
+    width: 100%;
+}
+.stButton > button:hover { background: #163D26 !important; color: #ffffff !important; }
+
+/* ════════════════════════════════════════════════
+   CUSTOM CARDS (HTML injected via st.markdown)
+   ════════════════════════════════════════════════ */
+
+/* Dark green header banner → white text */
 .brand {
-    background: #1E5032;
-    color: white;
+    background: #1E5032 !important;
+    color: #ffffff !important;
     padding: 28px 32px 20px;
     border-radius: 6px;
     margin-bottom: 24px;
@@ -36,25 +158,33 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
     font-family: 'IBM Plex Serif', serif;
     font-size: 2.4rem;
     margin: 0 0 4px;
-    color: white;
+    color: #ffffff !important;
 }
-.brand p { margin: 0; opacity: 0.8; font-size: 0.95rem; }
+.brand p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+    color: #ffffff !important;
+}
 
+/* White form cards → black text */
 .form-card {
     background: white;
     border: 1px solid #C8D8C0;
     border-radius: 6px;
     padding: 20px 24px;
     margin-bottom: 16px;
+    color: #1f2328 !important;
 }
 .form-card h3 {
-    color: #1E5032;
+    color: #1E5032 !important;
     font-size: 1rem;
     margin: 0 0 12px;
     padding-bottom: 8px;
     border-bottom: 1px solid #E0EAD8;
 }
 
+/* Agent step progress box */
 .step-box {
     background: #F4F9F1;
     border-left: 4px solid #3C8C5A;
@@ -62,9 +192,10 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
     margin: 6px 0;
     border-radius: 0 4px 4px 0;
     font-size: 0.9rem;
-    color: #1E5032;
+    color: #1E5032 !important;
 }
 
+/* White score cards → black text */
 .score-card {
     background: white;
     border: 1px solid #C8D8C0;
@@ -72,6 +203,7 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
     padding: 20px;
     text-align: center;
     margin-bottom: 16px;
+    color: #1f2328 !important;
 }
 .score-big {
     font-family: 'IBM Plex Serif', serif;
@@ -79,23 +211,26 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
     font-weight: 600;
     line-height: 1;
 }
-.score-label { color: #5B7A5B; font-size: 0.85rem; margin-top: 4px; }
+.score-label { color: #1f2328 !important; font-size: 0.85rem; margin-top: 4px; }
 
+/* White result cards → black text */
 .result-card {
     background: white;
     border: 1px solid #C8D8C0;
     border-radius: 6px;
     padding: 20px 24px;
     margin-bottom: 16px;
+    color: #1f2328 !important;
 }
 .result-card h4 {
-    color: #1E5032;
+    color: #1E5032 !important;
     font-size: 0.95rem;
     margin: 0 0 10px;
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
 
+/* SDG rows inside white result card → black text */
 .sdg-row {
     display: flex;
     justify-content: space-between;
@@ -103,28 +238,19 @@ html, body, [class*="css"] { font-family: 'IBM Plex Sans', sans-serif; }
     padding: 6px 0;
     border-bottom: 1px solid #EEF3EB;
     font-size: 0.88rem;
+    color: #1f2328 !important;
 }
 .sdg-row:last-child { border-bottom: none; }
 
-.compliant   { color: #2E7D4F; font-weight: 600; }
-.warning     { color: #B07820; font-weight: 600; }
-.noncompliant{ color: #B03030; font-weight: 600; }
+/* SDG status badges — dark enough to read on white */
+.compliant    { color: #1a5c36 !important; font-weight: 600; }
+.warning      { color: #7a4f00 !important; font-weight: 600; }
+.noncompliant { color: #8b1a1a !important; font-weight: 600; }
 
-.stButton>button {
-    background: #1E5032 !important;
-    color: white !important;
-    border: none !important;
-    padding: 12px 32px !important;
-    font-weight: 600 !important;
-    border-radius: 4px !important;
-    font-size: 1rem !important;
-    width: 100%;
-}
-.stButton>button:hover { background: #163D26 !important; }
-
+/* Data-source footnotes */
 .data-source {
     font-size: 0.78rem;
-    color: #7A9A7A;
+    color: #2d4a2d !important;
     margin-top: 4px;
 }
 </style>
@@ -275,7 +401,7 @@ if run_clicked:
         <div class="score-card">
             <div class="score-big" style="color:#1E5032">{total_co2}</div>
             <div class="score-label">Tonnes CO₂/year</div>
-            <div style="color:#5B7A5B;margin-top:6px;font-size:0.85rem">Total carbon footprint</div>
+            <div style="color:#1f2328;margin-top:6px;font-size:0.85rem">Total carbon footprint</div>
         </div>""", unsafe_allow_html=True)
     with m3:
         fp = result["footprints"]
@@ -287,7 +413,7 @@ if run_clicked:
         <div class="score-card">
             <div class="score-big" style="color:#1E5032">{compliant_count}/5</div>
             <div class="score-label">SDGs Compliant</div>
-            <div style="color:#5B7A5B;margin-top:6px;font-size:0.85rem">Out of 5 tracked goals</div>
+            <div style="color:#1f2328;margin-top:6px;font-size:0.85rem">Out of 5 tracked goals</div>
         </div>""", unsafe_allow_html=True)
 
     # Domain scores

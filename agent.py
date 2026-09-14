@@ -14,7 +14,7 @@ from benchmarks import (
     ENERGY_BENCHMARK_KWH_PER_SQFT_PER_YEAR, SDG_SCORES
 )
 
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "openai/gpt-oss-120b"
 MAX_TOKENS = 1500
 
 
